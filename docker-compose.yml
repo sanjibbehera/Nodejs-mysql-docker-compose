@@ -10,7 +10,6 @@ services:
      - MYSQL_DATABASE="studentsdb"
      - MYSQL_USER="student"
      - MYSQL_PASSWORD="student123"
-    restart: unless-stopped
   webapp:
     build: ./nodejs-services
     ports:
