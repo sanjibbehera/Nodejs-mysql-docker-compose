@@ -1,6 +1,6 @@
 version: '2'
 services:
-  security:
+  webapp:
     build: ./nodejs-services
     ports:
      - "8123:8123"
