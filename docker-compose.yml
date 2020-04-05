@@ -5,11 +5,11 @@ services:
     ports:
     - "3306:3306"
     environment:
-     - DATABASE_HOST=mysqldb
-     - MYSQL_ROOT_PWD=secretadmin
-     - MYSQL_DATABASE=studentsdb
-     - MYSQL_USER=student
-     - MYSQL_PASSWORD=student123
+     - DATABASE_HOST="mysqldb"
+     - MYSQL_ROOT_PWD="secretadmin"
+     - MYSQL_DATABASE="studentsdb"
+     - MYSQL_USER="student"
+     - MYSQL_PASSWORD="student123"
     restart: unless-stopped
   webapp:
     build: ./nodejs-services
@@ -19,7 +19,8 @@ services:
      - mysqldb
     environment:
      - DATABASE_HOST=mysqldb
-     - DATABASE_ROOT_PWD=secretadmin
      - DBNAME=studentsdb
+     - DATABASE_USER=student
+     - DATABASE_PWD=student123
     volumes:
      - ./nodejs-services:/app

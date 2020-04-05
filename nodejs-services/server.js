@@ -10,8 +10,8 @@ const port = 5000;
 // the mysql.createConnection function takes in a configuration object which contains host, user, password and the database name.
 const db = mysql.createConnection ({
     host: process.env.DATABASE_HOST,
-    user: process.env.DATABASE_ROOT_USER,
-    password: process.env.DATABASE_ROOT_PWD,
+    user: process.env.DATABASE_USER,
+    password: process.env.DATABASE_PWD,
     database: process.env.DBNAME
 });
 
