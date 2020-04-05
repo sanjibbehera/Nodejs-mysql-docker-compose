@@ -2,9 +2,11 @@ version: '2'
 services:
   mysqldb:
     build: ./db-services
+    ports:
+    - "3306:3306"
     environment:
      - DATABASE_HOST=mysqldb
-     - DATABASE_ROOT_PWD=secretadmin
+     - MYSQL_ROOT_PWD=secretadmin
      - MYSQL_DATABASE=studentsdb
      - MYSQL_USER=student
      - MYSQL_PASSWORD=student123
