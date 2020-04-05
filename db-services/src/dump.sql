@@ -1,7 +1,8 @@
 CREATE DATABASE IF NOT EXISTS studentsdb;
 
 CREATE USER 'student'@'%' identified by 'student123';
-GRANT ALL PRIVILEGES ON `studentsdb`.* TO 'student'@'%'
+GRANT ALL PRIVILEGES ON `studentsdb`.* TO 'student'@'%';
+FLUSH PRIVILEGES;
 
 CREATE TABLE IF NOT EXISTS students (
     student_id INT AUTO_INCREMENT PRIMARY KEY,

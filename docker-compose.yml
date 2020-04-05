@@ -5,7 +5,7 @@ services:
     ports:
     - "3306:3306"
     environment:
-     - DATABASE_HOST=mysqldb
+     - DATABASE_HOST=mysql
      - MYSQL_ROOT_PASSWORD=secretadmin
      - MYSQL_DATABASE=studentsdb
      - MYSQL_USER=student
@@ -17,7 +17,7 @@ services:
     depends_on:
      - mysqldb
     environment:
-     - DATABASE_HOST=mysqldb
+     - DATABASE_HOST=mysql
      - DBNAME=studentsdb
      - DATABASE_USER=student
      - DATABASE_PWD=student123
