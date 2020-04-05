@@ -2,6 +2,7 @@ version: '2'
 services:
   mysqldb:
     build: ./db-services
+    restart: unless-stopped
   webapp:
     build: ./nodejs-services
     ports:
