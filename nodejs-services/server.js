@@ -12,7 +12,7 @@ const db = mysql.createConnection ({
     host: process.env.DATABASE_HOST,
     user: 'root',
     password: 'secretadmin',
-    database: 'studentdb'
+    database: 'studentsdb'
 });
 
 db.connect((err) => {
