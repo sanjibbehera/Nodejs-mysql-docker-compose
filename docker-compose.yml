@@ -5,11 +5,11 @@ services:
     ports:
     - "3306:3306"
     environment:
-     - DATABASE_HOST="mysqldb"
-     - MYSQL_ROOT_PWD="secretadmin"
-     - MYSQL_DATABASE="studentsdb"
-     - MYSQL_USER="student"
-     - MYSQL_PASSWORD="student123"
+     - DATABASE_HOST=mysqldb
+     - MYSQL_ROOT_PASSWORD=secretadmin
+     - MYSQL_DATABASE=studentsdb
+     - MYSQL_USER=student
+     - MYSQL_PASSWORD=student123
   webapp:
     build: ./nodejs-services
     ports:
