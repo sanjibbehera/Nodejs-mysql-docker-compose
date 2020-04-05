@@ -18,7 +18,7 @@ CREATE TABLE IF NOT EXISTS student_details (
         REFERENCES students(student_id)
         ON DELETE CASCADE
 )
-ENGINE = INNODB AUTO_INCREMENT = 1 DEFAULT CHARSET = utf8;
+  ENGINE = INNODB;
 
 
 INSERT INTO STUDENTS (student_name) VALUES ('RAJ', 'CLASS II');
