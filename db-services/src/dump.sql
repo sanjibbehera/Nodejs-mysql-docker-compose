@@ -1,5 +1,8 @@
 CREATE DATABASE IF NOT EXISTS studentsdb;
 
+CREATE USER 'student'@'%' identified by 'student123';
+GRANT ALL PRIVILEGES ON `studentsdb`.* TO 'student'@'%'
+
 CREATE TABLE IF NOT EXISTS students (
     student_id INT AUTO_INCREMENT PRIMARY KEY,
     student_name VARCHAR(255) NOT NULL,
