@@ -1,0 +1,14 @@
+version: '2'
+services:
+  security:
+    build: ./nodejs-services
+    ports:
+     - "8123:8123"
+    depends_on:
+     - db
+    environment:
+     - DATABASE_HOST=db
+    volumes:
+     - ./nodejs-services:/app
+  db:
+    build: ./db-service
