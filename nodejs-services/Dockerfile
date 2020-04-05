@@ -1,5 +1,6 @@
 FROM node:dubnium-alpine
-
-ADD start.sh /start.sh
-RUN chmod 755 /start.sh
-CMD ["/start.sh"]
+RUN mkdir /app
+WORKDIR /app
+ADD start.sh /app/start.sh
+RUN chmod 755 /app/start.sh
+CMD ["/app/start.sh"]
