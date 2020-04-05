@@ -11,4 +11,4 @@ services:
     volumes:
      - ./nodejs-services:/app
   db:
-    build: ./db-service
+    build: ./db-services
