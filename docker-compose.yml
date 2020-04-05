@@ -13,5 +13,8 @@ services:
      - mysqldb
     environment:
      - DATABASE_HOST=mysqldb
+     - DATABASE_ROOT_USER=root
+     - DATABASE_ROOT_PWD=secretadmin
+     - DBNAME=studentsdb
     volumes:
      - ./nodejs-services:/app
