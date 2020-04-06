@@ -1,0 +1,6 @@
+CREATE DATABASE IF NOT EXISTS studentsdb;
+
+CREATE USER 'student'@'%' IDENTIFIED BY 'student123';
+GRANT ALL PRIVILEGES ON studentsdb.* TO 'student'@'%';
+FLUSH PRIVILEGES;
+QUIT

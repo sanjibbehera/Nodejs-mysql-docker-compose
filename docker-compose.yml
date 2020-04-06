@@ -1,27 +1,32 @@
-version: '2'
+version: '3.3'
 services:
   mysqldb:
     build: ./db-services
-    ports:
-    - "3306:3306"
+    restart: always
     environment:
-     - MYSQL_ROOT_PASSWORD=secretadmin
-     - MYSQL_DATABASE=studentsdb
+      MYSQL_DATABASE: 'studentsdb'
+      # So you don't have to use root, but you can if you like
+      MYSQL_USER: 'student'
+      # You can use whatever password you like
+      MYSQL_PASSWORD: 'student123'
+      # Password for root access
+      MYSQL_ROOT_PASSWORD: 'secretadmin'
+    ports:
+      # <Port exposed> : < MySQL Port running inside container>
+      - '3306:3306'
+    expose:
+      # Opens port 3306 on the container
+      - '3306'
   webapp:
     build: ./nodejs-services
     ports:
-     - "5000:5000"
+      - "5000:5000"
     depends_on:
      - mysqldb
     environment:
-     - DATABASE_HOST=mysqldb
-     - DBNAME=studentsdb
-     - DATABASE_USER=student
-     - DATABASE_PWD=student123
-    command: >
-      /bin/bash -c "
-        sleep 30;
-        nc -lk 0.0.0.0 3306;
-      "
+      DATABASE_HOST: 'mysqldb'
+      DBNAME: 'studentsdb'
+      DATABASE_USER: 'student'
+      DATABASE_PWD: 'student123'
     volumes:
-     - ./nodejs-services:/app
+      - ./nodejs-services:/app
