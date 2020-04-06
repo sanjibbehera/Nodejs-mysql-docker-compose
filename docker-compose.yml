@@ -7,8 +7,6 @@ services:
     environment:
      - MYSQL_ROOT_PASSWORD=secretadmin
      - MYSQL_DATABASE=studentsdb
-     - MYSQL_USER=student
-     - MYSQL_PASSWORD=student123
   webapp:
     build: ./nodejs-services
     ports:
