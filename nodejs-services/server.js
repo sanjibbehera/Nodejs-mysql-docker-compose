@@ -30,9 +30,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json()); // parse form data client
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.get('/', getHomePage);
-
 const {getHomePage} = require('./routes/index');
+
+app.get('/', getHomePage);
 
 app.listen(port, () => {
     console.log(`Server running on port: ${port}`);
