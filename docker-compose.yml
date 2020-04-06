@@ -4,7 +4,7 @@ services:
     build: ./db-services
     restart: always
     environment:
-      DATABASE_HOST: 'mysqldb'
+      DATABASE_HOST: mysqldb
     ports:
       # <Port exposed> : < MySQL Port running inside container>
       - '3306:3306'
@@ -18,9 +18,9 @@ services:
     depends_on:
       - mysqldb
     environment:
-      DATABASE_HOST: 'mysqldb'
-      DBNAME: 'studentsdb'
-      DATABASE_USER: 'student'
-      DATABASE_PWD: 'student123'
+      DATABASE_HOST: mysqldb
+      DBNAME: studentsdb
+      DATABASE_USER: student
+      DATABASE_PWD: student123
     volumes:
       - ./nodejs-services:/app
