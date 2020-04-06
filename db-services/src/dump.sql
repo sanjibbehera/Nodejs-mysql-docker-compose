@@ -1,24 +1,26 @@
 CREATE DATABASE IF NOT EXISTS studentsdb;
 
-CREATE TABLE IF NOT EXISTS students (
-    student_id INT AUTO_INCREMENT PRIMARY KEY,
-    student_name VARCHAR(255) NOT NULL,
-    student_class VARCHAR(30) NOT NULL,
-)  ENGINE=INNODB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+CREATE USER 'student'@'%' IDENTIFIED BY 'student123';
+GRANT ALL PRIVILEGES ON studentsdb.* TO 'student'@'%';
+
+CREATE TABLE IF NOT EXISTS `students` (
+    `student_id` INT AUTO_INCREMENT PRIMARY KEY,
+    `student_name` VARCHAR(255) NOT NULL,
+    `student_class` VARCHAR(30) NOT NULL,
+)  ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
 CREATE TABLE IF NOT EXISTS student_details (
-    student_details_id INT AUTO_INCREMENT PRIMARY KEY,
-    student_id INT NOT NULL,
-    student_first_name VARCHAR(255) NOT NULL,
-    student_last_name VARCHAR(255) NOT NULL,
-    student_class VARCHAR(30) NOT NULL,
-    student_class_section VARCHAR(30) NOT NULL,
-    student_school_name VARCHAR(255) NOT NULL,
-    FOREIGN KEY (student_id)
-        REFERENCES students(student_id)
+    `student_details_id` INT AUTO_INCREMENT PRIMARY KEY,
+    `student_id` INT NOT NULL,
+    `student_first_name` VARCHAR(255) NOT NULL,
+    `student_last_name` VARCHAR(255) NOT NULL,
+    `student_class` VARCHAR(30) NOT NULL,
+    `student_class_section` VARCHAR(30) NOT NULL,
+    `student_school_name` VARCHAR(255) NOT NULL,
+    FOREIGN KEY (`student_id`)
+        REFERENCES students(`student_id`)
         ON DELETE CASCADE
-)
-  ENGINE = INNODB;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
 
 INSERT INTO STUDENTS (student_name) VALUES ('RAJ', 'CLASS II');
