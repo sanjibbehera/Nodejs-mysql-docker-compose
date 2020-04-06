@@ -8,7 +8,7 @@ module.exports = {
                 res.redirect('/');
             }
             res.render('index.ejs', {
-                title: Welcome to HELL | View Students Details
+                title: 'Welcome to HELL | View Students Details'
                 ,student_details: result
             });
         });
