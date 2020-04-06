@@ -5,7 +5,7 @@ services:
     ports:
     - "3306:3306"
     environment:
-     - DATABASE_HOST=mysql
+     - DATABASE_HOST=mysqldb
      - MYSQL_ROOT_PASSWORD=secretadmin
      - MYSQL_DATABASE=studentsdb
      - MYSQL_USER=student
@@ -17,9 +17,14 @@ services:
     depends_on:
      - mysqldb
     environment:
-     - DATABASE_HOST=mysql
+     - DATABASE_HOST=mysqldb
      - DBNAME=studentsdb
      - DATABASE_USER=student
      - DATABASE_PWD=student123
+    command: >
+      /bin/bash -c "
+        sleep 30;
+        nc -lk 0.0.0.0 3306;
+      "
     volumes:
      - ./nodejs-services:/app
