@@ -1,4 +1,4 @@
-FROM mysql:5.7
+FROM mysql:latest
 
 ENV MYSQL_ROOT_PASSWORD secretadmin  
 ENV MYSQL_DATABASE studentsdb  
