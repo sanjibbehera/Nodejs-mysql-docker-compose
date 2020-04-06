@@ -1,6 +1,6 @@
 CREATE DATABASE IF NOT EXISTS studentsdb;
 
-CREATE USER 'student'@'%' identified by 'student123';
+CREATE USER 'student'@'%' IDENTIFIED BY 'student123';
 GRANT ALL PRIVILEGES ON `studentsdb`.* TO 'student'@'%';
 FLUSH PRIVILEGES;
 
