@@ -1,26 +1,30 @@
-version: '3.3'
+version: '2.1'
 services:
   mysqldb:
     build: ./db-services
-    restart: always
-    environment:
-      DATABASE_HOST: mysqldb
     ports:
-      # <Port exposed> : < MySQL Port running inside container>
-      - '3306:3306'
-    expose:
-      # Opens port 3306 on the container
-      - '3306'
+     - "3306:3306"
+    environment:
+     - DATABASE_HOST=mysqldb
+     - MYSQL_ROOT_PWD=secretadmin
+     - MYSQL_DATABASE=studentsdb
+     - MYSQL_USER=student
+     - MYSQL_PASSWORD=student123
+    healthcheck:
+      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+      timeout: 20s
+      retries: 10
   webapp:
     build: ./nodejs-services
     ports:
-      - "5000:5000"
+     - "5000:5000"
     depends_on:
-      - mysqldb
+      db:
+        condition: service_healthy
     environment:
-      DATABASE_HOST: mysqldb
-      DBNAME: studentsdb
-      DATABASE_USER: student
-      DATABASE_PWD: student123
+     - DATABASE_HOST=mysqldb
+     - DBNAME=studentsdb
+     - DATABASE_USER=student
+     - DATABASE_PWD=student123
     volumes:
-      - ./nodejs-services:/app
+     - ./nodejs-services:/app
