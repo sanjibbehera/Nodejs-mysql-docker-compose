@@ -2,6 +2,9 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mysql = require('mysql');
 const path = require('path');
+
+const {getHomePage} = require('./routes/index');
+
 const app = express();
 
 const port = 5000;
@@ -30,7 +33,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json()); // parse form data client
 app.use(express.static(path.join(__dirname, 'public')));
 
-const {getHomePage} = require('./routes/index');
+
 
 app.get('/', getHomePage);
 
