@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var connection  = require('./config/dbConfig');
+var connection  = require('../config/dbConfig');
 
 
 /* GET home page. */
