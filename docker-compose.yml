@@ -6,12 +6,9 @@ services:
      - "3306:3306"
     environment:
      - DATABASE_HOST=mysqldb
-     - MYSQL_ROOT_PWD=secretadmin
-     - MYSQL_DATABASE=studentsdb
-     - MYSQL_USER=student
-     - MYSQL_PASSWORD=student123
     healthcheck:
-      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+      test: "/usr/bin/mysql --user=root --password=secretadmin --execute \"SHOW DATABASES;\""
+      interval: 2s
       timeout: 20s
       retries: 10
   webapp:
