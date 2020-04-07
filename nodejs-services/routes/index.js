@@ -1,16 +1,22 @@
-module.exports = {
-    getHomePage: (req, res) => {
-        let query = "SELECT * FROM `student_details` ORDER BY student_details_id ASC"; // query database to get all data from the table student_details
+var express = require('express');
+var router = express.Router();
+var connection  = require('./config/dbConfig');
 
-        // execute query
-        db.query(query, (err, result) => {
-            if (err) {
-                res.redirect('/');
-            }
-            res.render('index.ejs', {
-                title: 'Welcome to HELL | View Students Details'
-                ,student_details: result
-            });
-        });
-    },
-};
+
+/* GET home page. */
+router.get('/', function(req, res, next) {
+      
+ connection.query('SELECT * FROM `student_details` ORDER BY student_details_id ASC',function(err,rows)     {
+ 
+        if(err){
+			res.redirect('/');   
+        }else{
+            
+            res.render('index.ejs',{page_title:"Welcome to HELL | View Students Details - Node.js",student_details:rows});
+        }
+                            
+         });
+        
+    });
+
+module.exports = router;

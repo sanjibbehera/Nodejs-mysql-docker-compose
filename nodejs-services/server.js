@@ -3,10 +3,12 @@ const bodyParser = require('body-parser');
 const path = require('path');
 require('dotenv').config();
 
+var mysql = require('mysql');
+var connection  = require('./config/dbConfig');
+
 var getHomePage = require('./routes/index');
 
 var app = express();
-const { pool } = require('./config/dbConfig');
 const port = 5000;
 
 app.set('port', process.env.port || port); // set express to use this port
