@@ -13,22 +13,16 @@
     <a href="/customers/add" class="btn btn-secondary ml-3">New Student</a> 
     <a href="/customers" class="btn btn-info ml-3">Student List</a>
 </div>    
-<!--   <% if (messages.error) { %>
-  <p style="color:red"><%- messages.error %></p>
-<% } %> -->
-  
-<% if (messages.success) { %>
-    <p class="alert alert-success mt-4"><%- messages.success %></p>
-<% } %>  
+ 
 <br>
   <table class="table">
 <thead>
   <tr>
     <th scope="col">#</th>
 	<th scope="col">STUDENT ID</th>
-	<th scope="col">Class</th>
 	<th scope="col">First Name</th>
 	<th scope="col">Last Name</th>
+	<th scope="col">Class</th>
 	<th scope="col">Section</th>
 	<th scope="col">School Name</th>
  
@@ -40,8 +34,12 @@
   for(var i = 0; i< student_details.length; i++) {%>  
   <tr>
     <th scope="row"><%= (i+1) %></th>
-    <td><%= student_details[i].name%></td>
-    <td><%= student_details[i].email%></td>
+    <td><%= student_details[i].student_id%></td>
+    <td><%= student_details[i].student_first_name%></td>
+    <td><%= student_details[i].student_last_name%></td>
+    <td><%= student_details[i].student_class%></td>
+    <td><%= student_details[i].student_class_section%></td>
+    <td><%= student_details[i].student_school_name%></td>
     <td>
     <a class="btn btn-success edit" href="../customers/edit/<%=student_details[i].id%>">Edit</a>                       
     <a class="btn btn-danger delete" onclick="return alert('Are You sure?')" href="../customers/delete/<%=student_details[i].id%>">Delete</a>                       
