@@ -19,7 +19,6 @@
 <thead>
   <tr>
     <th scope="col">#</th>
-	<th scope="col">STUDENT ID</th>
 	<th scope="col">First Name</th>
 	<th scope="col">Last Name</th>
 	<th scope="col">Class</th>
@@ -34,7 +33,6 @@
   for(var i = 0; i< student_details.length; i++) {%>  
   <tr>
     <th scope="row"><%= (i+1) %></th>
-    <td><%= student_details[i].student_id%></td>
     <td><%= student_details[i].student_first_name%></td>
     <td><%= student_details[i].student_last_name%></td>
     <td><%= student_details[i].student_class%></td>
