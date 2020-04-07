@@ -7,7 +7,7 @@ services:
     environment:
      - DATABASE_HOST=mysqldb
     healthcheck:
-      test: "/usr/bin/mysql --user=root --password=secretadmin --execute \"SHOW DATABASES;\""
+      test: "/usr/bin/mysql --user=$$MYSQL_USER --password=$$MYSQL_PASSWORD --execute \"SHOW DATABASES;\""
       interval: 2s
       timeout: 20s
       retries: 10
@@ -22,6 +22,5 @@ services:
      - DATABASE_HOST=mysqldb
      - DBNAME=studentsdb
      - DATABASE_USER=student
-     - DATABASE_PWD=student123
     volumes:
      - ./nodejs-services:/app
