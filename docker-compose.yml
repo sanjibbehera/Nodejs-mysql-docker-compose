@@ -22,5 +22,6 @@ services:
      - DATABASE_HOST=mysqldb
      - DBNAME=studentsdb
      - DATABASE_USER=student
+     - DATABASE_PWD=student123
     volumes:
      - ./nodejs-services:/app
