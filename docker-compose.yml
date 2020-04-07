@@ -1,6 +1,7 @@
 version: '2.1'
 services:
   mysqldb:
+    image: sanjibbehera_dockerimgs_mysqldb:rc2
     build: ./db-services
     ports:
      - "3306:3306"
@@ -12,6 +13,7 @@ services:
       timeout: 20s
       retries: 10
   webapp:
+    image: sanjibbehera_dockerimgs_webapp:rc2
     build: ./nodejs-services
     ports:
      - "5000:5000"
